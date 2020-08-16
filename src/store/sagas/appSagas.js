@@ -4,13 +4,16 @@ import axios from 'axios';
 import actionTypes from '../actions/actionTypes'
 import * as actions from '../actions'
 
-const getWorkflows = () => axios.get('http://localhost:5000/workflows')
+const getWorkflows = async () => {
+  const call = await axios.get('http://localhost:5000/username')
+  return await call.data
+}
 
 export const validateLogin = function* (){
   while(true) {
-    const { user } = yield take(actionTypes.CHECK_LOGIN)
+    const { username, password } = yield take(actionTypes.CHECK_LOGIN)
     try {
-      if(user.userName === 'admin' && user.password === 'admin'){ //have to do a real backend call in real cases
+      if(username === 'admin' && password === 'admin'){ //have to do a real backend call in real cases
         const data = yield call(getWorkflows)
         yield put(actions.loadWorkflow(data))
         yield put(actions.clearMessage())

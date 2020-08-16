@@ -2,7 +2,8 @@ import actionTypes from './actionTypes'
 
 export const chkLogin = payload => ({
   type: actionTypes.CHECK_LOGIN,
-  payload
+  username: payload.username,
+  password: payload.password
 })
 
 export const showMessage = payload => ({
