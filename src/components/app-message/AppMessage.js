@@ -5,7 +5,7 @@ import { clearMessage } from '../../store/actions'
 
 const messageComponent = (type, appMessage, dispatchClearMessage) => (
   <div className={`bg-${type}-100 border border-${type}-400 text-${type}-700 px-4 py-1 rounded relative mx-24`} role="alert">
-    <strong className="font-bold">{appMessage.type}</strong>
+    <strong className="font-bold mr-2 capitalize">{appMessage.type}: </strong>
     <span className="block sm:inline">{appMessage.message}</span>
     <span className="absolute top-0 bottom-0 right-0 px-4 py-1">
       <svg 
