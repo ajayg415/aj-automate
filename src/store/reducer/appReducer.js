@@ -1,10 +1,7 @@
 import actionTypes from '../actions/actionTypes'
 
 let initialStore = {
-  appMessage: {
-    type: '',
-    message:''
-  },
+  appMessage: {},
   workflows: [],
   activeWorkflow: {}
 } 
@@ -23,6 +20,8 @@ const appReducer = ( state = initialStore, action) => {
       return {...state,
       workflows: action.payload
     }
+    default:
+      return state;
   }
 }
 

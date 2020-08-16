@@ -11,7 +11,7 @@ export const showMessage = payload => ({
 })
 
 export const clearMessage = () => ({
-  type: actionTypes.SHOW_APP_MESSAGE
+  type: actionTypes.CLEAR_APP_MESSAGE
 })
 
 export const loadWorkflow = payload => ({
