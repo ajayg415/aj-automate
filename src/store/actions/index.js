@@ -33,3 +33,11 @@ export const removeWorkflow = payload => ({
   type: actionTypes.REMOVE_WORKFLOW,
   payload
 })
+
+export const userLogin = () => ({
+  type: actionTypes.USER_AUTH_SUCCESS
+})
+
+export const userLogout = () => ({
+  type: actionTypes.USER_LOGOUT
+})

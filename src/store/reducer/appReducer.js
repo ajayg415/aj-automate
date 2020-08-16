@@ -3,11 +3,20 @@ import actionTypes from '../actions/actionTypes'
 let initialStore = {
   appMessage: {},
   workflows: [],
-  activeWorkflow: {}
+  activeWorkflow: {},
+  isAuth: false
 } 
 
 const appReducer = ( state = initialStore, action) => {
   switch(action.type) {
+    case actionTypes.USER_AUTH_SUCCESS:
+      return { ...state,
+        isAuth: true
+      }
+    case actionTypes.USER_LOGOUT:
+      return { ...state,
+        isAuth: false
+      }
     case actionTypes.SHOW_APP_MESSAGE:
       return { ...state,
         appMessage : action.payload

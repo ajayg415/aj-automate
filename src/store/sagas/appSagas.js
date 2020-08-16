@@ -14,6 +14,7 @@ export const validateLogin = function* (){
     const { username, password } = yield take(actionTypes.CHECK_LOGIN)
     try {
       if(username === 'admin' && password === 'admin'){ //have to do a real backend call in real cases
+        yield put(actions.userLogin())
         const data = yield call(getWorkflows)
         yield put(actions.loadWorkflow(data))
         yield put(actions.clearMessage())
