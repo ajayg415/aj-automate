@@ -1,16 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { TiMail } from "react-icons/ti";
 import { RiLockPasswordLine } from "react-icons/ri";
+import { withRouter } from 'react-router-dom';
 
 import { chkLogin } from '../../store/actions'
 
 import './AppLogin.css'
 
-const AppLogin = ({ dispatchCheckLogin }) => {
+const AppLogin = ({ dispatchCheckLogin, isAuth, history }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [valid, setValid] = useState(true)
+ 
+  useEffect(()=> {
+    if(isAuth && history.location.pathname === '/'){
+      history.push('/workflows')
+    }
+  }, [isAuth, history])
 
   const submitForm = () => {
     if(username === '' || password === ''){
@@ -47,8 +54,8 @@ const AppLogin = ({ dispatchCheckLogin }) => {
             <input value={password} onChange={e=> setPassword(e.target.value)}placeholder="Password" type="password" className="appearance-none border-0 focus:outline-none ml-2 text-gray-700 w-11/12"/>
           </div>
 
-          <p className="mb-6 text-gray-500 text-xs">
-            <i>Hint</i>: Enter "admin" as usernamd and password.
+          <p className="mb-6 mt-1 text-gray-500 text-xs">
+            <i>Hint</i>: Enter <strong>"admin"</strong> as usernamd and password.
           </p>
 
           <div className="flex items-center justify-between">
@@ -65,8 +72,12 @@ const AppLogin = ({ dispatchCheckLogin }) => {
   )
 }
 
+const mapStateToProps = state => ({
+  isAuth: state.appReducer.isAuth
+})
+
 const mapDispatchToProps = dispatch => ({
   dispatchCheckLogin: userObj => dispatch(chkLogin(userObj))
 })
 
-export default connect(null, mapDispatchToProps)(AppLogin);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(AppLogin));
