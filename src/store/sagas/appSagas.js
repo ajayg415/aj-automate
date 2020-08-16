@@ -5,7 +5,7 @@ import actionTypes from '../actions/actionTypes'
 import * as actions from '../actions'
 
 const getWorkflows = async () => {
-  const call = await axios.get('http://localhost:5000/username')
+  const call = await axios.get('http://localhost:5000/workflows')
   return await call.data
 }
 

@@ -1,6 +1,32 @@
 {
-  "username": {
-    "firstName": "Ajay",
-    "lastname": "Gangisetti"
-  }
+  "workflows": [
+    {
+      "id": "workflow1",
+      "name": "Daily Tasks",
+      "status": "pending",
+      "tasks": [
+        { "id": "task1", "name": "task1", "description": "desc of task1", "status": "completed" },
+        { "id": "task1", "name": "task2", "description": "desc of task2", "status": "pending" },
+        { "id": "task1", "name": "task3", "description": "desc of task3", "status": "progress" }
+      ]
+    }, {
+      "id": "workflow2",
+      "name": "Personal Tasks",
+      "status": "completed",
+      "tasks": [
+        { "id": "task1", "name": "task1", "description": "desc of task1", "status": "completed" },
+        { "id": "task1", "name": "task2", "description": "desc of task2", "status": "completed" },
+        { "id": "task1", "name": "task3", "description": "desc of task3", "status": "completed" }
+      ]
+    }, {
+      "id": "workflow3",
+      "name": "Work Tasks",
+      "status": "pending",
+      "tasks": [
+        { "id": "task1", "name": "task1", "description": "desc of task1", "status": "completed" },
+        { "id": "task1", "name": "task2", "description": "desc of task2", "status": "pending" },
+        { "id": "task1", "name": "task3", "description": "desc of task3", "status": "progress" }
+      ]
+    }
+  ]
 }

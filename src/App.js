@@ -18,9 +18,7 @@ const App = ({ isAuth, dispatchLogOut }) => {
         <AppMessage />
         <Switch>
           <Route path="/" exact component={AppLogin} />
-          <Route path="/workflows" component={AppWorkflows} render={() => {
-            return !isAuth ? <Redirect to="/" /> : ''
-          }} />
+          <Route path="/workflows" component={AppWorkflows} />
         </Switch>
       </div>
     </Router>
