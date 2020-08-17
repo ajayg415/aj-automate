@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { TiTick } from 'react-icons/ti';
 import { RiDeleteBin6Line } from 'react-icons/ri';
@@ -63,10 +64,12 @@ const WorkflowTile = ({ workflow, dispatchRemoveFlow, dispatchShowMessage, dispa
       </div>
 
       <div className="flex justify-evenly flex-col lg:flex-row my-4 sm:flex-col">
-        <button className="bg-teal-300 border-b-2 focus:outline-none hover:bg-teal-400 px-3 py-1 my-1">
-          <BsCardChecklist className="status ml-2 mr-3 mt-1 react-icons relative list-icon"/>
-          <span>View List</span>
-        </button>
+        <Link to={`/workflows/${workflow.id}`}>
+          <button className="bg-teal-300 border-b-2 focus:outline-none hover:bg-teal-400 px-3 py-1 my-1">
+            <BsCardChecklist className="status ml-2 mr-3 mt-1 react-icons relative list-icon"/>
+            <span>View List</span>
+          </button>
+        </Link>
 
         <button className="bg-red-400 border-b-2 focus:outline-none hover:bg-red-500 px-3 py-1 my-1" onClick={() => dispatchRemoveFlow(workflow)}>
           <RiDeleteBin6Line className="status ml-2 mr-3 mt-1 react-icons relative list-icon"/>
