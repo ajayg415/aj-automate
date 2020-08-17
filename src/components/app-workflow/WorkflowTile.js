@@ -4,11 +4,12 @@ import { TiTick } from 'react-icons/ti';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { BsCardChecklist } from 'react-icons/bs';
 
-const WorkflowTile = workflow => {
-  const { name, status, tasks } = workflow.workflow
+const WorkflowTile = ({ workflow, dispatchRemoveFlow }) => {
+  const { name, status, tasks } = workflow
   const completedTasks = tasks.filter(task => task.status === 'completed').length;
   const pendingTasks = tasks.filter(task => task.status === 'pending').length
   const progressTasks = tasks.length - (completedTasks + pendingTasks)
+
   return (
     <div className="rounded shadow-lg w-1/3 px-2 mx-4 w-full">
       <div className="py-4">
@@ -52,7 +53,7 @@ const WorkflowTile = workflow => {
           <span>View List</span>
         </button>
 
-        <button className="bg-red-400 border-b-2 focus:outline-none hover:bg-red-500 px-3 py-1 my-1">
+        <button className="bg-red-400 border-b-2 focus:outline-none hover:bg-red-500 px-3 py-1 my-1" onClick={() => dispatchRemoveFlow(workflow)}>
           <RiDeleteBin6Line className="status ml-2 mr-3 mt-1 react-icons relative list-icon"/>
           <span>Delete</span>
         </button>

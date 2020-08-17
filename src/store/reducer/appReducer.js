@@ -29,7 +29,11 @@ const appReducer = ( state = initialStore, action) => {
     case actionTypes.LOAD_WORKFLOWS: 
       return {...state,
       workflows: action.payload
-    }
+      }
+    case actionTypes.REMOVE_WORKFLOW:
+      return {...state,
+        workflows: state.workflows.filter(workflow => workflow.id !== action.payload.id)
+      }
     default:
       return state;
   }
