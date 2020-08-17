@@ -72,6 +72,55 @@
           "status": "progress" 
         }
       ]
+    }, {
+      "id": "workflow4",
+      "name": "Misc Tasks",
+      "status": "pending",
+      "tasks": [
+        { 
+          "id": "task1", 
+          "name": "task1", 
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.", 
+          "status": "completed" 
+        },
+        { 
+          "id": "task1", 
+          "name": "task2", 
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.", 
+          "status": "completed" 
+        },
+        { 
+          "id": "task1", 
+          "name": "task3", 
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.", 
+          "status": "progress" 
+        }
+      ]
+    }
+    , {
+      "id": "workflow5",
+      "name": "Learning Tasks",
+      "status": "completed",
+      "tasks": [
+        { 
+          "id": "task1", 
+          "name": "task1", 
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.", 
+          "status": "completed" 
+        },
+        { 
+          "id": "task1", 
+          "name": "task2", 
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.", 
+          "status": "completed" 
+        },
+        { 
+          "id": "task1", 
+          "name": "task3", 
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.", 
+          "status": "completed" 
+        }
+      ]
     }
   ]
 }

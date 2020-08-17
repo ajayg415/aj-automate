@@ -27,7 +27,7 @@ const WorkflowHeader = () => {
         </div>
       </div>
 
-      <div className="bg-blue-500 border control mr-10 text-white">
+      <div className="bg-blue-500 hover:bg-blue-600 border control mr-10 text-white">
         <IoMdAdd className="mr-3 ml-1 workflow-icons" />
         <button className="focus:outline-none font-bold pr-4 py-1" type="button">
           Create WorkFlow

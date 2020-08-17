@@ -10,3 +10,7 @@ svg.workflow-icons {
 svg.status {
   font-size: 25px;
 }
+
+svg.list-icon {
+  top: -2px;
+}

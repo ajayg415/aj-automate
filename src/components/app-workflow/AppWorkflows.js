@@ -9,7 +9,7 @@ const AppWorkflows = ({ workflows }) => {
     <div>
       <WorkflowHeader />
       
-      <div className="m-5 flex">
+      <div className="gap-4 grid grid-cols-3 grid-rows-3 m-5 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4">
         {workflows.map(workflow => {
           return <WorkflowTile key={workflow.id} workflow={workflow} />
         })}
