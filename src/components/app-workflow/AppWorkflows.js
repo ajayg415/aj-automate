@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { removeWorkflow } from '../../store/actions'
+import { removeWorkflow, showMessage, updateWorkflow } from '../../store/actions'
 
 import WorkflowHeader from './WorkflowHeader';
 import WorkflowTile from './WorkflowTile'
 
-const AppWorkflows = ({ workflows, dispatchRemoveFlow }) => {
+const AppWorkflows = ({ workflows, dispatchRemoveFlow, dispatchShowMessage, dispatchUpdateWorkflow }) => {
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState('-1')
-  const [cards, setCards] = useState([...workflows])
+  const [cards, setCards] = useState([])
 
   useEffect(() => {
     setCards([...workflows])
@@ -34,7 +34,13 @@ const AppWorkflows = ({ workflows, dispatchRemoveFlow }) => {
       {cards.length > 0 ?
         <div className="gap-4 grid grid-cols-3 grid-rows-3 m-5 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4">
           {cards.map(workflow => {
-            return <WorkflowTile key={workflow.id} workflow={workflow} dispatchRemoveFlow={dispatchRemoveFlow} />
+            return <WorkflowTile 
+              key={workflow.id} 
+              workflow={workflow} 
+              dispatchRemoveFlow={dispatchRemoveFlow} 
+              dispatchShowMessage={dispatchShowMessage}
+              dispatchUpdateWorkflow={dispatchUpdateWorkflow}
+            />
           })}
         </div>
       :
@@ -51,7 +57,9 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  dispatchRemoveFlow: flow => dispatch(removeWorkflow(flow))
+  dispatchRemoveFlow: flow => dispatch(removeWorkflow(flow)),
+  dispatchShowMessage: msgObj => dispatch(showMessage(msgObj)),
+  dispatchUpdateWorkflow: flow => dispatch(updateWorkflow(flow))
 })
 
 

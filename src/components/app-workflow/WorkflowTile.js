@@ -4,11 +4,26 @@ import { TiTick } from 'react-icons/ti';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { BsCardChecklist } from 'react-icons/bs';
 
-const WorkflowTile = ({ workflow, dispatchRemoveFlow }) => {
+const WorkflowTile = ({ workflow, dispatchRemoveFlow, dispatchShowMessage, dispatchUpdateWorkflow }) => {
   const { name, status, tasks } = workflow
   const completedTasks = tasks.filter(task => task.status === 'completed').length;
   const pendingTasks = tasks.filter(task => task.status === 'pending').length
   const progressTasks = tasks.length - (completedTasks + pendingTasks)
+
+  const updateStatus = () => {
+    if( status === 'pending'){
+      if(pendingTasks > 0 || progressTasks>0){
+        dispatchShowMessage({
+          type: 'error',
+          message: 'Workflow have penging / in-progress tasks, please complete them before updating workflow status.'
+        })
+      }else{
+        dispatchUpdateWorkflow({...workflow, status: 'completed'})
+      }
+    }else{
+      dispatchUpdateWorkflow({...workflow, status: 'pending'})
+    }
+  }
 
   return (
     <div className="rounded shadow-lg w-1/3 px-2 mx-4 w-full">
@@ -20,7 +35,7 @@ const WorkflowTile = ({ workflow, dispatchRemoveFlow }) => {
         <div className="font-semibold text-xl mb-2">Status :</div>
         <div className={`ml-8 rounded-full text-white ${status === 'completed' ? 'bg-green-500 hover:bg-green-600': 'bg-gray-500 hover:bg-gray-600'}`}>
           <button className="focus:outline-none">
-            <TiTick className="status ml-2 mr-3 mt-1 react-icons workflow-icons" title={status}/>
+            <TiTick className="status ml-2 mr-3 mt-1 react-icons workflow-icons" title={status} onClick={updateStatus}/>
           </button>
         </div>
       </div>

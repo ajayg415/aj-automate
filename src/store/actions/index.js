@@ -25,8 +25,9 @@ export const addWorkflow = payload => ({
   payload
 })
 
-export const updateWorkflow = payoad => ({
-  type: actionTypes.UPDATE_WORKFLOWS
+export const updateWorkflow = payload => ({
+  type: actionTypes.UPDATE_WORKFLOWS,
+  payload
 })
 
 export const removeWorkflow = payload => ({

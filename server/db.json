@@ -93,7 +93,7 @@
           "id": "task1", 
           "name": "task3", 
           "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.", 
-          "status": "progress" 
+          "status": "completed" 
         }
       ]
     }
