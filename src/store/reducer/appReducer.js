@@ -15,7 +15,8 @@ const appReducer = ( state = initialStore, action) => {
       }
     case actionTypes.USER_LOGOUT:
       return { ...state,
-        isAuth: false
+        isAuth: false,
+        workflows: []
       }
     case actionTypes.SHOW_APP_MESSAGE:
       return { ...state,

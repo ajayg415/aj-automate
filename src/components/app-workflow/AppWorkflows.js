@@ -1,11 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import WorkflowHeader from './WorkflowHeader';
+import WorkflowTile from './WorkflowTile'
+
 const AppWorkflows = ({ workflows }) => {
   console.log('workflows :', workflows)
   return (
     <div>
-      content from AppWorkflows
+      <WorkflowHeader />
+      
+      <WorkflowTile />
     </div>
   )
 }
