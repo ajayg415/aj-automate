@@ -6,3 +6,7 @@ svg.workflow-icons {
 .workflow .control {
   height: 35px;
 }
+
+svg.status {
+  font-size: 25px;
+}
