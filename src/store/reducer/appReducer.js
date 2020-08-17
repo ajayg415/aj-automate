@@ -35,9 +35,10 @@ const appReducer = ( state = initialStore, action) => {
         workflows: state.workflows.filter(workflow => workflow.id !== action.payload.id)
       }
     case actionTypes.UPDATE_WORKFLOWS:
-      const flows = state.workflows.filter(flow => flow.id !== action.payload.id)
       return {...state,
-        workflows: [ ...flows, action.payload]
+        workflows: state.workflows.reduce((a,c) => {
+          return (c.id === action.payload.id) ? [...a, action.payload] : [...a, c]
+        },[])
       }
     default:
       return state;

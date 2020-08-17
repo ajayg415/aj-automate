@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { TiTick } from 'react-icons/ti';
+import { IoMdCheckmark } from 'react-icons/io';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { BsCardChecklist } from 'react-icons/bs';
 
@@ -27,37 +27,40 @@ const WorkflowTile = ({ workflow, dispatchRemoveFlow, dispatchShowMessage, dispa
   }
 
   return (
-    <div className="rounded shadow-lg w-1/3 px-2 mx-4 w-full">
+    <div className="px-2 rounded shadow-lg">
       <div className="py-4">
         <div className="font-bold text-xl mb-2">{name}</div>
       </div>
 
       <div className="flex">
         <div className="font-semibold text-xl mb-2">Status :</div>
-        <div className={`ml-8 rounded-full text-white ${status === 'completed' ? 'bg-green-500 hover:bg-green-600': 'bg-gray-500 hover:bg-gray-600'}`}>
-          <button className="focus:outline-none">
-            <TiTick className="status ml-2 mr-3 mt-1 react-icons workflow-icons" title={status} onClick={updateStatus}/>
-          </button>
-        </div>
+        <button
+          onClick={updateStatus}
+          className={`ml-8 font-bold px-2 rounded inline-flex items-center ${status === 'completed' ? 'bg-green-300 hover:bg-green-400 text-green-800': 'bg-gray-300 hover:bg-gray-400 text-gray-800'}`}
+        >
+          <IoMdCheckmark className="fill-current w-4 h-4 mr-2" title={status} />
+          <span className="capitalize font-semibold text-sm">{status}</span>
+        </button>
+
       </div>
 
       <div className="">
         <div className="font-semibold text-xl mb-2">Tasks Details:</div>
         <ul className="ml-4 table">
           <li className="table-row text-sm">
-            <span className="table-cell">No. Of tasks:</span> 
+            <span className="table-cell">No. Of tasks:</span>
             <span className="table-cell pl-4">{tasks.length}</span>
           </li>
           <li className="table-row text-sm">
-            <span className="table-cell">Completed:</span> 
+            <span className="table-cell">Completed:</span>
             <span className="table-cell pl-4">{completedTasks}</span>
           </li>
           <li className="table-row text-sm">
-            <span className="table-cell">Pending:</span> 
+            <span className="table-cell">Pending:</span>
             <span className="table-cell pl-4">{pendingTasks}</span>
           </li>
           <li className="table-row text-sm">
-            <span className="table-cell">Progress:</span> 
+            <span className="table-cell">Progress:</span>
             <span className="table-cell pl-4">{progressTasks}</span>
           </li>
         </ul>

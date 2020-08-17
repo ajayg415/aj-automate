@@ -16,7 +16,7 @@ const AppHeader = ({ dispatchLogOut, isAuth, history }) => {
     <div className="bg-pink-700 flex justify-between m-1 px-1 py-5">
       <div className="w-1/2">
         <FcFlowChart className="chart-icon"/> 
-        <div className="inline-block mx-3 text-white company-name">AUTOMATE FLOW APP</div>
+        <div className="inline-block mx-3 text-white company-name font-semibold">AUTOMATE FLOW APP</div>
       </div>
       { isAuth &&
         <div className="w-1/2">

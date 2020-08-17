@@ -6,7 +6,7 @@ import { RiDeleteBin6Line } from 'react-icons/ri';
 import { AiOutlineFileAdd } from 'react-icons/ai';
 
 
-const TaskHeader = ({ title, setTitle }) => {
+const TaskHeader = ({ title, setTitle, shuffleTasks, updateFlow }) => {
   const [edit, setEdit] = useState(false)
   
   return (
@@ -15,7 +15,7 @@ const TaskHeader = ({ title, setTitle }) => {
         <div className="border flex ml-10">
           <input 
             type="text" 
-            className="focus:outline-none w-full" 
+            className="focus:outline-none w-full px-2" 
             value={title} 
             onChange={e=> setTitle(e.target.value)}
             onBlur={()=>setEdit(false)}
@@ -31,7 +31,7 @@ const TaskHeader = ({ title, setTitle }) => {
       <div className="flex justify-between">
         <div className="bg-blue-500 hover:bg-blue-600 border control mr-2 text-white">
           <BsShuffle className="mr-3 ml-1 workflow-icons" />
-          <button className="focus:outline-none font-bold pr-4 py-1" type="button">
+          <button className="focus:outline-none font-bold pr-4 py-1" type="button" onClick={shuffleTasks}>
             Shuffle
           </button>
         </div>
@@ -52,7 +52,7 @@ const TaskHeader = ({ title, setTitle }) => {
 
         <div className="bg-blue-500 hover:bg-blue-600 border control mr-2 text-white">
           <FaRegSave className="mr-3 ml-1 workflow-icons" />
-          <button className="focus:outline-none font-bold pr-4 py-1" type="button">
+          <button className="focus:outline-none font-bold pr-4 py-1" type="button" onClick={updateFlow}>
             Save
           </button>
         </div>
