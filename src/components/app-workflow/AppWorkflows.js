@@ -32,7 +32,7 @@ const AppWorkflows = ({ workflows, dispatchRemoveFlow, dispatchShowMessage, disp
     <div>
       <WorkflowHeader search={search} setSearch={setSearch} filter={filter} setFilter={setFilter}/>
       {cards.length > 0 ?
-        <div className="gap-4 grid grid-cols-3 grid-rows-3 m-5 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="gap-4 grid grid-cols-3 m-5 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4">
           {cards.map(workflow => {
             return <WorkflowTile 
               key={workflow.id} 
