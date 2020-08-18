@@ -2,13 +2,18 @@ import React from 'react';
 
 import { IoMdCheckmark } from 'react-icons/io';
 
-const TaskTile = ({ task }) => {
+const TaskTile = ({ task, updateTasks }) => {
   const {id, name, description, status} = task;
   let classList = {
     'progress': 'bg-gray-300 hover:bg-gray-400 text-gray-800',
     'pending': 'bg-blue-300 hover:bg-blue-400 text-blue-800',
     'completed': 'bg-green-300 hover:bg-green-400 text-green-800'
   };
+
+  const updateStatus = () => {
+    const st = (status === 'progress' ? 'pending' : (status === 'pending' ? 'completed' : 'progress'))
+    updateTasks({...task, status: st})
+  }
 
   return (
     <div className="rounded shadow-lg w-1/3 px-2 mx-4 w-full">
@@ -21,6 +26,7 @@ const TaskTile = ({ task }) => {
 
         <button
           className={`ml-8 font-bold px-2 rounded inline-flex items-center ${classList[status]}`}
+          onClick={updateStatus}
         >
           <IoMdCheckmark className="fill-current w-4 h-4 mr-2" title={status} />
           <span className="capitalize font-semibold text-sm">{status}</span>
