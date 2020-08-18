@@ -4,7 +4,8 @@ let initialStore = {
   appMessage: {},
   workflows: [],
   activeWorkflow: {},
-  isAuth: false
+  isAuth: false,
+  loading: false
 } 
 
 const appReducer = ( state = initialStore, action) => {
@@ -39,6 +40,14 @@ const appReducer = ( state = initialStore, action) => {
         workflows: state.workflows.reduce((a,c) => {
           return (c.id === action.payload.id) ? [...a, action.payload] : [...a, c]
         },[])
+      }
+    case actionTypes.SHOW_LOADER:
+      return {...state,
+        loading: true
+      }
+    case actionTypes.HIDE_LOADER:
+      return {...state,
+        loading: false
       }
     default:
       return state;

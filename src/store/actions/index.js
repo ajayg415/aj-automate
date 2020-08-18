@@ -42,3 +42,11 @@ export const userLogin = () => ({
 export const userLogout = () => ({
   type: actionTypes.USER_LOGOUT
 })
+
+export const showLoader = () => ({
+  type: actionTypes.SHOW_LOADER
+})
+
+export const hideLoader = () => ({
+  type: actionTypes.HIDE_LOADER
+})
